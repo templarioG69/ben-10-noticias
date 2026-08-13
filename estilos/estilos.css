@@ -1,0 +1,318 @@
+/* General & Layout */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    background: linear-gradient(135deg, #000000 0%, #0a1f0a 50%, #003300 100%);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #e0ffe0;
+    min-height: 100vh;
+}
+
+#contenedor { 
+    width: 1150px; 
+    margin: 0 auto; 
+    padding-bottom: 50px; 
+}
+
+/* Header & Menú */
+header {
+    width: 100%;
+    height: 110px;
+    background: linear-gradient(90deg, #004d00 0%, #000000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #00ff00;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2);
+}
+
+#titulo {
+    color: #00ff00;
+    font-size: 36px;
+    letter-spacing: 4px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+#menuss { 
+    width: 100%; 
+    background-color: #051405; 
+    border-bottom: 3px solid #00cc00; 
+}
+
+.menu ul { 
+    list-style: none; 
+    display: flex; 
+    justify-content: center; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.menu a { 
+    display: block; 
+    padding: 15px 22px; 
+    color: #ccffcc; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 15px; 
+    transition: all 0.3s ease; 
+}
+
+.menu a:hover { 
+    background-color: #008800; 
+    color: #ffffff; 
+}
+
+/* Títulos y Secciones */
+.titulo-noticias {
+    color: #00ff00;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+#noticia1 {
+    width: 1150px;
+    margin: 25px auto;
+    background-color: #081a08;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #00ff00;
+    display: flex;
+}
+
+#noticia1 #descripcion {
+    background-color: #0d260d;
+    width: 50%;
+    padding: 30px;
+}
+
+#noticia1 #descripcion h2 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#noticia1 #descripcion h2 a:hover {
+    color: #00ff00;
+}
+
+#noticia1 #descripcion p {
+    color: #a3ffa3;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+#titulosdelindex {
+    color: #00ff00;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+#foto {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #051405;
+    border-top: 2px solid #00ff00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#parrafo {
+    color: #a3ffa3;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+#redes img {
+    margin-left: 10px;
+    filter: drop-shadow(0 0 2px #00ff00);
+}
+
+#slider {
+   margin: 0 auto;
+   width: auto;
+   max-width: 100%;
+   text-align: center;
+}
+
+#slider input[type=radio] {
+   display: none;
+}
+
+#slider label {
+   cursor: pointer;
+   text-decoration: none;
+}
+
+#slides {
+   border: 3px solid #00ff00;
+   background: #000;
+   position: relative;
+   z-index: 1;
+}
+
+#overflow {
+   width: 100%;
+   overflow: hidden;
+}
+
+/* Transiciones e imágenes */
+#slide1:checked ~ #slides .inner {
+   margin-left: 0;
+}
+#slide2:checked ~ #slides .inner {
+   margin-left: -100%;
+}
+#slide3:checked ~ #slides .inner {
+   margin-left: -200%;
+}
+#slide4:checked ~ #slides .inner {
+   margin-left: -300%;
+}
+
+#slides .inner {
+   transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+   width: 400%;
+   line-height: 0;
+   height: 650px;
+}
+
+#slides .slide {
+   width: 25%;
+   float: left;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   color: #fff;
+}
+
+#slides .slide img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+#slides .slide_1,
+#slides .slide_2,
+#slides .slide_3,
+#slides .slide_4 {
+   background-position: center;
+   background: #000000;
+}
+
+/* BOTONES DE FLECHA (CONTROLES SIGUIENTE / ANTERIOR) */
+#controls {
+   margin: -350px 0 0 0;
+   width: 100%;
+   height: 50px;
+   z-index: 3;
+   position: relative;
+}
+
+#controls label {
+   transition: opacity 0.2s ease-out;
+   display: none;
+   width: 50px;
+   height: 50px;
+   opacity: .6;
+   border-radius: 50%;
+}
+
+#controls label:hover {
+   opacity: 1;
+   box-shadow: 0 0 10px #00ff00;
+}
+
+/* Flecha Siguiente */
+#slide1:checked ~ #controls label:nth-child(2),
+#slide2:checked ~ #controls label:nth-child(3),
+#slide3:checked ~ #controls label:nth-child(4),
+#slide4:checked ~ #controls label:nth-child(1) {
+   background: url(../imagenes/next_2.png) no-repeat center;
+   background-size: 30px;
+   float: right;
+   margin: 0 15px;
+   display: block;
+   background-color: #004d00;
+   border: 2px solid #00ff00;
+}
+
+/* Flecha Anterior */
+#slide1:checked ~ #controls label:nth-last-child(1),
+#slide2:checked ~ #controls label:nth-last-child(4),
+#slide3:checked ~ #controls label:nth-last-child(3),
+#slide4:checked ~ #controls label:nth-last-child(2) {
+   background: url(../imagenes/back_3.png) no-repeat center;
+   background-size: 30px;
+   float: left;
+   margin: 0 15px;
+   display: block;
+   background-color: #004d00;
+   border: 2px solid #00ff00;
+}
+
+/* INDICADORES (BULLETS) */
+#bullets {
+   margin: 300px 0 0;
+   text-align: center;
+   position: relative;
+   z-index: 4;
+}
+
+#bullets label {
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+   border-radius: 100%;
+   background: #003300;
+   border: 2px solid #00aa00;
+   margin: 0 8px;
+   transition: all 0.3s ease;
+}
+
+#slide1:checked ~ #bullets label:nth-child(1),
+#slide2:checked ~ #bullets label:nth-child(2),
+#slide3:checked ~ #bullets label:nth-child(3),
+#slide4:checked ~ #bullets label:nth-child(4) {
+   background: #00ff00;
+   border-color: #ffffff;
+   box-shadow: 0 0 10px #00ff00;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 900px) {
+   #slide1:checked ~ #controls label:nth-child(2),
+   #slide2:checked ~ #controls label:nth-child(3),
+   #slide3:checked ~ #controls label:nth-child(4),
+   #slide4:checked ~ #controls label:nth-child(1),
+   #slide1:checked ~ #controls label:nth-last-child(1),
+   #slide2:checked ~ #controls label:nth-last-child(4),
+   #slide3:checked ~ #controls label:nth-last-child(3),
+   #slide4:checked ~ #controls label:nth-last-child(2) {
+      margin: 0 5px;
+   }
+   #slides {
+      max-width: calc(100% - 140px);
+      margin: 0 auto;
+   }
+}
